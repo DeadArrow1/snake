@@ -30,9 +30,9 @@ var move_direction : Vector2
 var can_move: bool
 
 func _ready():
-	new_game()
+	initialize()
 	
-func new_game():
+func initialize():
 	get_tree().paused = false
 	get_tree().call_group("segments","queue_free")
 	get_tree().call_group("head","queue_free")
@@ -40,10 +40,10 @@ func new_game():
 	score=0
 	move_direction = up
 	can_move=true
-	generate_snake()
-	move_food()
+	create_snake()
+	generate_berry()
 	
-func generate_snake():
+func create_snake():
 	old_data.clear()
 	snake_data.clear()
 	snake.clear()
@@ -66,16 +66,14 @@ func add_head(pos):
 	snake_data.append(pos)
 	var SnakeHead = snake_head.instantiate()
 	SnakeHead.position = (pos * cell_size) + Vector2(0,cell_size)
-	
-	
 	add_child(SnakeHead)
 	snake.append(SnakeHead)
 	
 	
 func _process(delta):
-	move_snake()
+	process_user_input()
 	
-func move_snake():
+func process_user_input():
 	if can_move:
 		if Input.is_action_just_pressed("move_down") and move_direction != up:
 			move_direction=down
@@ -104,6 +102,9 @@ func start_game():
 
 
 func _on_move_timer_timeout():
+	update()
+	
+func update():
 	can_move = true
 	old_data = [] + snake_data
 	snake_data[0] += move_direction
@@ -111,26 +112,28 @@ func _on_move_timer_timeout():
 		if i>0:
 			snake_data[i]= old_data[i-1]
 		snake[i].position = (snake_data[i] * cell_size)+Vector2(0,cell_size)
-	check_out_of_bound()
-	check_self_eaten()
-	check_food_eaten()
+	check_snake_border_collision()
+	check_snake_body_collision()
+	check_snake_berry_collision()
 	
-func check_food_eaten():
+	
+	
+func check_snake_berry_collision():
 	if snake_data[0]==food_pos:
 		score+=1
 		add_segment(old_data[-1])
-		move_food()
+		generate_berry()
 	
-func check_out_of_bound():
+func check_snake_border_collision():
 	if(snake_data[0].x < 0 or snake_data[0].x > cells - 1 or snake_data[0].y <0-1 or snake_data[0].y > cells-2):
 		end_game()
 		
-func check_self_eaten():
+func check_snake_body_collision():
 	for i in range(1, len(snake_data)):
 		if(snake_data[0] == snake_data[i]):
 			end_game()
 			
-func move_food():
+func generate_berry():
 	while regen_food:
 		regen_food= false
 		food_pos = Vector2(randi_range(1,cells-1),randi_range(1,cells-2))
@@ -149,4 +152,4 @@ func end_game():
 
 
 func _on_game_over_menu_restart():
-	new_game()
+	initialize()
