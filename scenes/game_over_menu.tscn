@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpxk73cdj1ms0"]
+
+[ext_resource type="Script" path="res://scenes/game_over_menu.gd" id="1_sohrj"]
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_sohrj")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+offset_right = 1000.0
+offset_bottom = 1000.0
+
+[node name="ResultLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -124.0
+offset_right = 20.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "GAME OVER: 
+    SCORE 0
+"
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -20.5
+offset_right = 71.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+text = "RESTART"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1713371870
+icon.svg::CompressedTexture2D::8018108253572515193::1713295227::1713295244::1::::<><>::
+Main.gd::GDScript::-1::1713318660::0::1::::<>Node<>::
+::res://assets/::1713371986
+apple.png::CompressedTexture2D::131250867012393704::1713371967::1713371988::1::::<><>::
+bg.png::CompressedTexture2D::8692448236834806350::1713371986::1713371988::1::::<><>::
+::res://scenes/::1713371922
+game_over_menu.gd::GDScript::-1::1713298881::0::1::::<>CanvasLayer<>::
+game_over_menu.tscn::PackedScene::5873820499525466605::1713371921::0::1::::<><>::res://scenes/game_over_menu.gd
+hud.tscn::PackedScene::7620581160586346304::1713317752::0::1::::<><>::
+main.tscn::PackedScene::8376867742034384376::1713371921::0::1::::<><>::res://Main.gd<>uid://dv3xl8p2fm6hu::::res://assets/bg.png<>uid://u3mkwjp5ydic::::res://scenes/snake_segment.tscn<>uid://p0tqxns51ke4::::res://scenes/snake_head.tscn<>uid://b4txhdb5v7hs::::res://assets/apple.png<>uid://cpxk73cdj1ms0::::res://scenes/game_over_menu.tscn
+snake_head.tscn::PackedScene::1105625522965493373::1713371922::0::1::::<><>::
+snake_segment.tscn::PackedScene::1462327081866079326::1713371922::0::1::::<><>::
