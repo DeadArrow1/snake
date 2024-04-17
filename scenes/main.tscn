@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv3xl8p2fm6hu" path="res://assets/bg.png" id="2_14smr"]
 [ext_resource type="PackedScene" uid="uid://u3mkwjp5ydic" path="res://scenes/snake_segment.tscn" id="2_vic3r"]
 [ext_resource type="PackedScene" uid="uid://p0tqxns51ke4" path="res://scenes/snake_head.tscn" id="3_hf5ik"]
-[ext_resource type="Texture2D" uid="uid://b4txhdb5v7hs" path="res://assets/apple.png" id="5_2jiwr"]
+[ext_resource type="Texture2D" uid="uid://b4txhdb5v7hs" path="res://assets/berry.png" id="5_2jiwr"]
 [ext_resource type="PackedScene" uid="uid://cpxk73cdj1ms0" path="res://scenes/game_over_menu.tscn" id="6_qb8bd"]
 
 [node name="Main" type="Node"]
